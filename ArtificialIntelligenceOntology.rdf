@@ -1,0 +1,1611 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14"
+     xml:base="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-14="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#entrenadoCon -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#entrenadoCon">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#evaluadoCon -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#evaluadoCon">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#implementadoEn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#implementadoEn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#incluyeAlgoritmo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#incluyeAlgoritmo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#perteneceACampo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#perteneceACampo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#usaModelo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#usaModelo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#usaTecnica -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#usaTecnica">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#usadoEnAplicacion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#usadoEnAplicacion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#anioPublicacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#anioPublicacion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#areaUso -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#areaUso">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#complejidadEspacio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#complejidadEspacio">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#complejidadTiempo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#complejidadTiempo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#creador -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#creador">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#definicion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#definicion">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#descripcion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#descripcion">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#dominio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#dominio">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ejemplo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ejemplo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Concepto"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#empresa -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#empresa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#enfoque -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#enfoque">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#entrada -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#entrada">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#esDeterministico -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#esDeterministico">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#formula -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#formula">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#fuente -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#fuente">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#lenguajeProgramacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#lenguajeProgramacion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#nombre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#nombre">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#numeroInstancias -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#numeroInstancias">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#salida -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#salida">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tipoAprendizaje -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tipoAprendizaje">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tipoHerramienta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tipoHerramienta">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tipoModelo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tipoModelo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Busqueda -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Busqueda">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Clasico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Clasico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ComputerVision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ComputerVision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Concepto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Concepto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#DeepLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#DeepLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Framework -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Framework">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Imagen -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Imagen">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Libreria -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Libreria">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#MachineLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#MachineLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#NaturalLanguageProcessing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#NaturalLanguageProcessing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Modelo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Optimizacion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Optimizacion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Algoritmo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Plataforma -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Plataforma">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Herramienta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ReinforcementLearning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ReinforcementLearning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Tecnica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Texto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Texto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_AStar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_AStar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Busqueda"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1968</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Búsqueda heurística óptima</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>A* Search</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_AdaBoost -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_AdaBoost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1995</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Adaptive Boosting que combina clasificadores débiles</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>AdaBoost</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Adam -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Adam">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Optimizacion"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2014</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Optimizador adaptativo con momento</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Adam Optimizer</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_BFS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_BFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Busqueda"/>
+        <untitled-ontology-14:complejidadTiempo>O(V+E)</untitled-ontology-14:complejidadTiempo>
+        <untitled-ontology-14:definicion>Búsqueda por amplitud en grafos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Breadth-First Search</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_CNN -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_CNN">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:implementadoEn rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_TensorFlow"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_CV"/>
+        <untitled-ontology-14:usadoEnAplicacion rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_FaceID"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1998</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Red con capas convolucionales para procesamiento de imágenes</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Convolutional Neural Network</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_DFS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_DFS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Busqueda"/>
+        <untitled-ontology-14:complejidadTiempo>O(V+E)</untitled-ontology-14:complejidadTiempo>
+        <untitled-ontology-14:definicion>Búsqueda por profundidad en grafos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Depth-First Search</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_DecisionTree -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_DecisionTree">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1963</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Árbol de decisiones para clasificación y regresión</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Decision Tree</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Genetic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Genetic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Optimizacion"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1960</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Optimización inspirada en evolución biológica</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Genetic Algorithm</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_GradientDescent -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_GradientDescent">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Optimizacion"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1847</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Optimización iterativa usando gradientes</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Gradient Descent</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_KMeans -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_KMeans">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:implementadoEn rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_ScikitLearn"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1957</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Algoritmo de clustering que particiona en k grupos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>K-Means Clustering</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_KNN -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_KNN">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1951</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Clasifica basado en los k vecinos más cercanos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>K-Nearest Neighbors</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LSTM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LSTM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:implementadoEn rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_TensorFlow"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1997</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>RNN especializada en memorizar dependencias a largo plazo</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Long Short-Term Memory</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LinearRegression -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LinearRegression">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:implementadoEn rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_ScikitLearn"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_ML"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1805</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Modelo de regresión lineal para predecir valores continuos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:esDeterministico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</untitled-ontology-14:esDeterministico>
+        <untitled-ontology-14:nombre>Linear Regression</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LogisticRegression -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LogisticRegression">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1958</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Modelo de clasificación binaria usando función sigmoide</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Logistic Regression</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_MLP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_MLP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:definicion>Red neuronal feedforward con capas ocultas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Multi-Layer Perceptron</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_NaiveBayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_NaiveBayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:definicion>Clasificador probabilístico basado en el teorema de Bayes</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Naive Bayes</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_QLearning -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_QLearning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_RL"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1989</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Algoritmo de reinforcement learning sin modelo</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Q-Learning</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_RNN -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_RNN">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:definicion>Red con conexiones recurrentes para datos secuenciales</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Recurrent Neural Network</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_RandomForest -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_RandomForest">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:implementadoEn rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_ScikitLearn"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_ML"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2001</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Ensemble de árboles de decisión con muestreo aleatorio</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Random Forest</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_SVM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_SVM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:implementadoEn rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_ScikitLearn"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1963</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Clasificador que maximiza el margen entre clases</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Support Vector Machine</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Transformer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Transformer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:implementadoEn rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_PyTorch"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP"/>
+        <untitled-ontology-14:usadoEnAplicacion rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_ChatGPT"/>
+        <untitled-ontology-14:usadoEnAplicacion rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_GoogleTranslate"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2017</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Arquitectura basada en atención para secuencias</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Transformer</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_XGBoost -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_XGBoost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aprendizaje"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2014</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Gradient boosting optimizado y eficiente</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>XGBoost</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_AlphaFold -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_AlphaFold">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaModelo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_AlphaFold"/>
+        <untitled-ontology-14:definicion>Predicción de estructura de proteínas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>DeepMind</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>AlphaFold</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_ChatGPT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_ChatGPT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Transformer"/>
+        <untitled-ontology-14:usaModelo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_GPT4"/>
+        <untitled-ontology-14:areaUso>Conversación, generación de texto</untitled-ontology-14:areaUso>
+        <untitled-ontology-14:definicion>Chatbot conversacional basado en GPT-4</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>OpenAI</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>ChatGPT</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Copilot -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Copilot">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaModelo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_GPT4"/>
+        <untitled-ontology-14:definicion>Asistente de programación con IA</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>GitHub/OpenAI</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>GitHub Copilot</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_FaceID -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_FaceID">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaTecnica rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_CV"/>
+        <untitled-ontology-14:definicion>Reconocimiento facial para autenticación</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Apple</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Apple Face ID</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_GoogleTranslate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_GoogleTranslate">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaModelo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_BERT"/>
+        <untitled-ontology-14:definicion>Traducción automática neural</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Google</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Google Translate</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Grammarly -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Grammarly">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaModelo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_BERT"/>
+        <untitled-ontology-14:definicion>Corrector gramatical y de estilo</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Grammarly</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Midjourney -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Midjourney">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaModelo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_StableDiffusion"/>
+        <untitled-ontology-14:definicion>Generador de imágenes por texto</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Midjourney Inc</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Midjourney</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Netflix -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Netflix">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaTecnica rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_ML"/>
+        <untitled-ontology-14:definicion>Sistema de recomendación personalizada</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Netflix</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Netflix Recommender</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Siri -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Siri">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaTecnica rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_NLP"/>
+        <untitled-ontology-14:definicion>Asistente virtual por voz</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Apple</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Siri</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Tesla -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#app_Tesla">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Aplicacion"/>
+        <untitled-ontology-14:usaModelo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_YOLO"/>
+        <untitled-ontology-14:definicion>Sistema de conducción autónoma</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Tesla</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Tesla Autopilot</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_CV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_CV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1966</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Enseña a las máquinas a interpretar y entender el mundo visual</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Computer Vision</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_DL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_DL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2006</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Subcampo de ML que utiliza redes neuronales con múltiples capas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Deep Learning</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_ExpertSystems -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_ExpertSystems">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1965</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Sistemas que emulan el razonamiento de un experto humano</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Expert Systems</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_KR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_KR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:definicion>Representación del conocimiento para razonamiento automático</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Knowledge Representation</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_ML -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_ML">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1959</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Campo que estudia algoritmos que aprenden de datos sin ser programados explícitamente</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Machine Learning</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1950</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Procesamiento y comprensión del lenguaje humano por computadoras</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Natural Language Processing</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_Planning -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_Planning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:definicion>Generación automática de secuencias de acciones</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Automated Planning</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_RL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_RL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1980</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Agentes aprenden por prueba y error mediante recompensas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Reinforcement Learning</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_Robotics -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_Robotics">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:definicion>Diseño, construcción y programación de robots autónomos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Robotics</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_Speech -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_Speech">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Campo"/>
+        <untitled-ontology-14:definicion>Reconocimiento y transcripción de voz humana</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Speech Recognition</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_AmazonReviews -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_AmazonReviews">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Texto"/>
+        <untitled-ontology-14:definicion>Reseñas de productos para análisis de sentimiento</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Amazon Reviews</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">23310000</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_CIFAR10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_CIFAR10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Imagen"/>
+        <untitled-ontology-14:creador>Alex Krizhevsky</untitled-ontology-14:creador>
+        <untitled-ontology-14:definicion>Imágenes a color 32x32 de 10 clases</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>CIFAR-10</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">60000</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_COCO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_COCO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Imagen"/>
+        <untitled-ontology-14:definicion>Common Objects in Context - detección y segmentación</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>COCO</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">328000</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_GLUE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_GLUE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Texto"/>
+        <untitled-ontology-14:creador>NYU</untitled-ontology-14:creador>
+        <untitled-ontology-14:definicion>General Language Understanding Evaluation</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>GLUE Benchmark</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_ImageNet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_ImageNet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Imagen"/>
+        <untitled-ontology-14:creador>Fei-Fei Li</untitled-ontology-14:creador>
+        <untitled-ontology-14:definicion>Base de datos masiva de imágenes etiquetadas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>ImageNet</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">14197122</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_LFW -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_LFW">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Imagen"/>
+        <untitled-ontology-14:definicion>Reconocimiento facial con variaciones no controladas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Labeled Faces in the Wild</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13233</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_MNIST -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_MNIST">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Imagen"/>
+        <untitled-ontology-14:creador>Yann LeCun</untitled-ontology-14:creador>
+        <untitled-ontology-14:definicion>Base de datos de dígitos manuscritos 28x28</untitled-ontology-14:definicion>
+        <untitled-ontology-14:dominio>Dígitos manuscritos</untitled-ontology-14:dominio>
+        <untitled-ontology-14:nombre>MNIST</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">70000</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_SQuAD -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_SQuAD">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Texto"/>
+        <untitled-ontology-14:definicion>Stanford Question Answering Dataset</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>SQuAD 2.0</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">150000</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_UCIAdult -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_UCIAdult">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Dataset"/>
+        <untitled-ontology-14:definicion>Predicción de ingresos usando datos de censo</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>UCI Adult Census</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">48842</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_WikiText -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_WikiText">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Texto"/>
+        <untitled-ontology-14:definicion>Artículos de Wikipedia para modelado de lenguaje</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>WikiText-103</untitled-ontology-14:nombre>
+        <untitled-ontology-14:numeroInstancias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">103000000</untitled-ontology-14:numeroInstancias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_AUC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_AUC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Área bajo la curva ROC</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>AUC-ROC</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Accuracy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Accuracy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Proporción de predicciones correctas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:formula>(TP+TN)/(TP+TN+FP+FN)</untitled-ontology-14:formula>
+        <untitled-ontology-14:nombre>Accuracy</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_BLEU -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_BLEU">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Métrica para traducción automática</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>BLEU Score</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_F1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_F1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Media armónica entre precisión y recall</untitled-ontology-14:definicion>
+        <untitled-ontology-14:formula>2*(P*R)/(P+R)</untitled-ontology-14:formula>
+        <untitled-ontology-14:nombre>F1 Score</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_MAE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_MAE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Error absoluto medio</untitled-ontology-14:definicion>
+        <untitled-ontology-14:formula>(1/n)Σ|yi-ŷi|</untitled-ontology-14:formula>
+        <untitled-ontology-14:nombre>Mean Absolute Error</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_MSE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_MSE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Error cuadrático medio para regresión</untitled-ontology-14:definicion>
+        <untitled-ontology-14:formula>(1/n)Σ(yi-ŷi)²</untitled-ontology-14:formula>
+        <untitled-ontology-14:nombre>Mean Squared Error</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Perplexity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Perplexity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Medida de incertidumbre en modelos de lenguaje</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Perplexity</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Precision -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Precision">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Verdaderos positivos sobre total de positivos predichos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:formula>TP/(TP+FP)</untitled-ontology-14:formula>
+        <untitled-ontology-14:nombre>Precision</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_ROUGE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_ROUGE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Métrica para resumen de texto</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>ROUGE Score</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Recall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Recall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Metrica"/>
+        <untitled-ontology-14:definicion>Verdaderos positivos sobre total de positivos reales</untitled-ontology-14:definicion>
+        <untitled-ontology-14:formula>TP/(TP+FN)</untitled-ontology-14:formula>
+        <untitled-ontology-14:nombre>Recall</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_AlphaFold -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_AlphaFold">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2021</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Predicción de estructura de proteínas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>DeepMind</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>AlphaFold 2</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_BERT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_BERT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_GLUE"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_WikiText"/>
+        <untitled-ontology-14:evaluadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_F1"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2018</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Bidirectional Encoder Representations from Transformers</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Google</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>BERT</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_GPT4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_GPT4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_GLUE"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_WikiText"/>
+        <untitled-ontology-14:evaluadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_BLEU"/>
+        <untitled-ontology-14:evaluadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Perplexity"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP"/>
+        <untitled-ontology-14:usaTecnica rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_DL"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2023</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Large language model multimodal de OpenAI</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>OpenAI</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>GPT-4</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoModelo>Transformer-based LLM</untitled-ontology-14:tipoModelo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_LLaMA -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_LLaMA">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_WikiText"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2024</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Large Language Model Meta AI de código abierto</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Meta</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>LLaMA 3</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_LinearRegModel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_LinearRegModel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Clasico"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_UCIAdult"/>
+        <untitled-ontology-14:evaluadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_MSE"/>
+        <untitled-ontology-14:definicion>Modelo lineal paramétrico para regresión</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Linear Regression Model</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoModelo>Clásico estadístico</untitled-ontology-14:tipoModelo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_RFForest -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_RFForest">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Clasico"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_UCIAdult"/>
+        <untitled-ontology-14:evaluadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Accuracy"/>
+        <untitled-ontology-14:definicion>Ensemble de árboles de decisión</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Random Forest Model</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoModelo>Ensemble</untitled-ontology-14:tipoModelo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_ResNet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_ResNet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_ImageNet"/>
+        <untitled-ontology-14:evaluadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Accuracy"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_CV"/>
+        <untitled-ontology-14:usaTecnica rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_DL"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2015</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Residual Network con 50 capas para visión</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Microsoft</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>ResNet-50</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_StableDiffusion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_StableDiffusion">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_ImageNet"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2024</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Modelo de generación de imágenes por difusión latente</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Stability AI</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Stable Diffusion 3.5</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_Whisper -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_Whisper">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2022</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Modelo de reconocimiento automático de voz</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>OpenAI</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Whisper</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_YOLO -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#mod_YOLO">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Neural"/>
+        <untitled-ontology-14:entrenadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#data_COCO"/>
+        <untitled-ontology-14:evaluadoCon rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#met_Precision"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_CV"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2023</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>You Only Look Once - detección de objetos en tiempo real</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Ultralytics</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>YOLOv8</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_CV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_CV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ComputerVision"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_CNN"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_CV"/>
+        <untitled-ontology-14:definicion>Técnicas para análisis e interpretación de imágenes y video</untitled-ontology-14:definicion>
+        <untitled-ontology-14:entrada>Imágenes o video</untitled-ontology-14:entrada>
+        <untitled-ontology-14:nombre>Computer Vision</untitled-ontology-14:nombre>
+        <untitled-ontology-14:salida>Objetos detectados, clasificaciones</untitled-ontology-14:salida>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_DL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_DL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#DeepLearning"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_CNN"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Transformer"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_DL"/>
+        <untitled-ontology-14:definicion>Redes neuronales profundas con múltiples capas ocultas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Deep Learning</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoAprendizaje>Supervisado, No supervisado</untitled-ontology-14:tipoAprendizaje>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_Generative -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_Generative">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#DeepLearning"/>
+        <untitled-ontology-14:definicion>Generación de nuevo contenido (texto, imagen, audio)</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Generative AI</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_ML -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_ML">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#MachineLearning"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_DecisionTree"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_KMeans"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LinearRegression"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_SVM"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_ML"/>
+        <untitled-ontology-14:definicion>Conjunto de técnicas que permiten a las máquinas aprender de datos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Machine Learning</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoAprendizaje>Supervisado, No supervisado, Refuerzo</untitled-ontology-14:tipoAprendizaje>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_NLP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_NLP">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#NaturalLanguageProcessing"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Transformer"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_NLP"/>
+        <untitled-ontology-14:definicion>Técnicas para procesar, entender y generar lenguaje humano</untitled-ontology-14:definicion>
+        <untitled-ontology-14:entrada>Texto o audio</untitled-ontology-14:entrada>
+        <untitled-ontology-14:nombre>Natural Language Processing</untitled-ontology-14:nombre>
+        <untitled-ontology-14:salida>Texto procesado, traducciones, respuestas</untitled-ontology-14:salida>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_RL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_RL">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#ReinforcementLearning"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_QLearning"/>
+        <untitled-ontology-14:perteneceACampo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#campo_RL"/>
+        <untitled-ontology-14:definicion>Aprendizaje por interacción con el entorno mediante recompensas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Reinforcement Learning</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoAprendizaje>Por refuerzo</untitled-ontology-14:tipoAprendizaje>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_SemiSupervised -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_SemiSupervised">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#MachineLearning"/>
+        <untitled-ontology-14:definicion>Combina datos etiquetados y no etiquetados</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Semi-supervised Learning</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_Supervised -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_Supervised">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#MachineLearning"/>
+        <untitled-ontology-14:definicion>Aprendizaje con datos etiquetados</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Supervised Learning</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoAprendizaje>Supervisado</untitled-ontology-14:tipoAprendizaje>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_TransferLearning -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_TransferLearning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#DeepLearning"/>
+        <untitled-ontology-14:definicion>Reutilizar un modelo entrenado para una tarea diferente</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Transfer Learning</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_Unsupervised -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tec_Unsupervised">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#MachineLearning"/>
+        <untitled-ontology-14:definicion>Aprendizaje con datos no etiquetados para encontrar patrones</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Unsupervised Learning</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoAprendizaje>No supervisado</untitled-ontology-14:tipoAprendizaje>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_Colab -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_Colab">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Plataforma"/>
+        <untitled-ontology-14:definicion>Notebooks en la nube con GPUs gratuitas</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Google</untitled-ontology-14:empresa>
+        <untitled-ontology-14:nombre>Google Colab</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_HuggingFace -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_HuggingFace">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Libreria"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Transformer"/>
+        <untitled-ontology-14:definicion>Librería de modelos transformer pre-entrenados</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Hugging Face</untitled-ontology-14:empresa>
+        <untitled-ontology-14:lenguajeProgramacion>Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>Hugging Face Transformers</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_Jupyter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_Jupyter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Plataforma"/>
+        <untitled-ontology-14:definicion>Entorno interactivo para ciencia de datos</untitled-ontology-14:definicion>
+        <untitled-ontology-14:nombre>Jupyter Notebook</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoHerramienta>Plataforma interactiva</untitled-ontology-14:tipoHerramienta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_Keras -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_Keras">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Framework"/>
+        <untitled-ontology-14:definicion>API de alto nivel para redes neuronales</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Google</untitled-ontology-14:empresa>
+        <untitled-ontology-14:lenguajeProgramacion>Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>Keras</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_NLTK -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_NLTK">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Libreria"/>
+        <untitled-ontology-14:definicion>Natural Language Toolkit para PLN</untitled-ontology-14:definicion>
+        <untitled-ontology-14:lenguajeProgramacion>Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>NLTK</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_OpenCV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_OpenCV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Libreria"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2000</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Librería de visión por computadora</untitled-ontology-14:definicion>
+        <untitled-ontology-14:lenguajeProgramacion>C++/Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>OpenCV</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_PyTorch -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_PyTorch">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Framework"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_Transformer"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2016</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Framework dinámico de Meta para deep learning</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Meta</untitled-ontology-14:empresa>
+        <untitled-ontology-14:lenguajeProgramacion>Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>PyTorch</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_ScikitLearn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_ScikitLearn">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Libreria"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_KMeans"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LinearRegression"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_RandomForest"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_SVM"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2007</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Librería de ML clásico en Python</untitled-ontology-14:definicion>
+        <untitled-ontology-14:lenguajeProgramacion>Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>Scikit-learn</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_SparkML -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_SparkML">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Framework"/>
+        <untitled-ontology-14:definicion>ML escalable sobre Apache Spark</untitled-ontology-14:definicion>
+        <untitled-ontology-14:lenguajeProgramacion>Scala/Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>Apache Spark MLlib</untitled-ontology-14:nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_TensorFlow -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#tool_TensorFlow">
+        <rdf:type rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#Framework"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_CNN"/>
+        <untitled-ontology-14:incluyeAlgoritmo rdf:resource="http://www.semanticweb.org/admin/ontologies/2026/3/untitled-ontology-14#alg_LSTM"/>
+        <untitled-ontology-14:anioPublicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2015</untitled-ontology-14:anioPublicacion>
+        <untitled-ontology-14:definicion>Framework de Google para deep learning</untitled-ontology-14:definicion>
+        <untitled-ontology-14:empresa>Google</untitled-ontology-14:empresa>
+        <untitled-ontology-14:lenguajeProgramacion>Python</untitled-ontology-14:lenguajeProgramacion>
+        <untitled-ontology-14:nombre>TensorFlow</untitled-ontology-14:nombre>
+        <untitled-ontology-14:tipoHerramienta>Framework</untitled-ontology-14:tipoHerramienta>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
