@@ -25,7 +25,10 @@ AIOntology/
 ├── ArtificialIntelligenceOntology.rdf  # Ontología OWL de IA
 │
 └── templates/
-    └── index.html                      # Frontend
+    └── index.html                      # HTML
+└── templates/
+    └── script.js                      # Javascript
+    └── styles.css                      # Hojas de estilo
 ```
 
 ### 2. Instalar dependencias

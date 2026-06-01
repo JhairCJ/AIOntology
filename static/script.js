@@ -48,7 +48,8 @@ const translations = {
         dbpediaMultilingual: 'DBpedia Multilingüe (EN, ES, DE, FR, JA)',
         dbpediaAllLabel: 'Buscar DBpedia en todos los idiomas',
         dbpediaScopeSingle: 'DBpedia en',
-        dbpediaScopeAll: 'DBpedia en todos los idiomas'
+        dbpediaScopeAll: 'DBpedia en todos los idiomas',
+        dataProperties: 'Propiedades de Datos'
     },
     en: {
         subtitle: 'Artificial Intelligence — Local Ontology + Multilingual DBpedia',
@@ -79,7 +80,8 @@ const translations = {
         dbpediaMultilingual: 'Multilingual DBpedia (EN, ES, DE, FR, JA)',
         dbpediaAllLabel: 'Search DBpedia in all languages',
         dbpediaScopeSingle: 'DBpedia in',
-        dbpediaScopeAll: 'DBpedia in all languages'
+        dbpediaScopeAll: 'DBpedia in all languages',
+        dataProperties: 'Data Properties'
     }
 };
 
@@ -225,6 +227,14 @@ async function performSearch() {
     }
 }
 
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
 function createResultCard(result) {
     const typeClass = result.type === 'Clase' ? 'type-class' : 
                      result.type === 'Individuo' ? 'type-individual' : 
@@ -257,6 +267,22 @@ function createResultCard(result) {
         relations += result.classes.map(c => `<span class="relation-tag">⊂ ${c}</span>`).join('');
     }
 
+    // Data properties: mostrar hasta 3 en la tarjeta
+    let dataPropsHtml = '';
+    if (result.data_properties && Object.keys(result.data_properties).length > 0) {
+        const t = getTranslations(currentLang);
+        const entries = Object.entries(result.data_properties).slice(0, 3);
+        const items = entries.map(([propLabel, values]) => {
+            const val = values
+                .filter(v => !v.lang || v.lang === currentLang || v.lang === 'en')
+                .map(v => v.value)[0]
+                || values[0].value;
+            const truncated = val.length > 80 ? val.slice(0, 77) + '…' : val;
+            return `<span class="data-prop-tag"><strong>${escapeHtml(propLabel)}:</strong> ${escapeHtml(truncated)}</span>`;
+        }).join('');
+        dataPropsHtml = `<div class="result-data-props">${items}</div>`;
+    }
+
     const dbpediaLang = result.dbpedia_lang || '';
     
     return `
@@ -269,6 +295,7 @@ function createResultCard(result) {
             </div>
             <div class="result-comment">${result.comment}</div>
             ${relations ? `<div class="result-relations">${relations}</div>` : ''}
+            ${dataPropsHtml}
         </div>
     `;
 }
@@ -371,6 +398,25 @@ async function showDetails(entityName, source = 'offline', dbpediaLang = null) {
                     <ul class="detail-list">
                         ${data.classes.map(c => `<li onclick="showDetails('${c.name}', 'offline')">${c.label}</li>`).join('')}
                     </ul>
+                </div>
+            `;
+        }
+        if (data.data_properties && Object.keys(data.data_properties).length > 0) {
+            const rows = Object.entries(data.data_properties).map(([propLabel, values]) => {
+                const displayVal = values
+                    .filter(v => !v.lang || v.lang === currentLang || v.lang === 'en')
+                    .map(v => v.value)[0]
+                    || values[0].value;
+                const langTag = values[0].lang ? `<span class="data-prop-lang">${values[0].lang}</span>` : '';
+                return `<tr>
+                    <td class="dp-label">${escapeHtml(propLabel)}</td>
+                    <td class="dp-value">${escapeHtml(displayVal)} ${langTag}</td>
+                </tr>`;
+            }).join('');
+            detailHtml += `
+                <div class="detail-section">
+                    <div class="detail-label">${t.dataProperties}:</div>
+                    <table class="data-props-table">${rows}</table>
                 </div>
             `;
         }

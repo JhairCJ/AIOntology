@@ -174,6 +174,30 @@ def get_comment(entity, lang='es'):
             return str(comments[0]) if comments else ""
     return ""
 
+def get_data_properties(entity, lang='es'):
+    """Obtiene los valores de data properties de una entidad (individuo o clase)"""
+    data_props = {}
+    if not ontology:
+        return data_props
+
+    for prop in ontology.data_properties():
+        try:
+            values = prop[entity]
+            if values:
+                label_display = get_label(prop, lang) or prop.name
+                serialized = []
+                for v in values:
+                    if hasattr(v, 'lang'):
+                        # locstr: incluir solo si coincide con lang, o si no hay de ese idioma
+                        serialized.append({'value': str(v), 'lang': v.lang})
+                    else:
+                        serialized.append({'value': str(v), 'lang': None})
+                if serialized:
+                    data_props[label_display] = serialized
+        except Exception:
+            pass
+    return data_props
+
 def normalize_text(text):
     if text is None:
         return ""
@@ -203,6 +227,7 @@ def search_classes(query, lang='es'):
                 'comment': get_comment(cls, lang) or "Clase de inteligencia artificial",
                 'parents': parents[:3],
                 'subclasses': subclasses[:5],
+                'data_properties': get_data_properties(cls, lang),
                 'relevance': calculate_relevance(query_lower, label, name, comment, 'class'),
                 'source': 'offline'
             })
@@ -277,6 +302,7 @@ def search_individuals(query, lang='es'):
                 'type': 'Individuo',
                 'comment': get_comment(ind, lang) or "Instancia de inteligencia artificial",
                 'classes': classes,
+                'data_properties': get_data_properties(ind, lang),
                 'relevance': calculate_relevance(query_lower, label, name, comment, 'individual'),
                 'source': 'offline'
             })
@@ -601,6 +627,7 @@ def get_details(entity_name):
                                 for s in entity.subclasses()]
         details['instances'] = [{'name': i.name, 'label': get_label(i, lang)} 
                                for i in entity.instances()]
+        details['data_properties'] = get_data_properties(entity, lang)
         
     elif hasattr(entity, 'domain'):
         details['type'] = 'Propiedad'
@@ -613,6 +640,7 @@ def get_details(entity_name):
         details['type'] = 'Individuo'
         details['classes'] = [{'name': c.name, 'label': get_label(c, lang)} 
                              for c in entity.is_a if isinstance(c, type)]
+        details['data_properties'] = get_data_properties(entity, lang)
     
     return jsonify(details)
 
