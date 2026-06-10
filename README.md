@@ -26,7 +26,7 @@ AIOntology/
 │
 └── templates/
     └── index.html                      # HTML
-└── templates/
+└── static/
     └── script.js                      # Javascript
     └── styles.css                      # Hojas de estilo
 ```
@@ -136,10 +136,6 @@ GET /api/stats
 - **Ontología**: Owlready2, RDF/OWL
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 - **Datos online**: DBpedia SPARQL
-
-## 📄 Licencia
-
-Este proyecto es de código abierto para uso educativo.
 
 ---
 

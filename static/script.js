@@ -1,6 +1,8 @@
 let currentLang = 'es';
 let currentFilter = 'all';
 let dbpediaAllLangs = false;
+let searchMode = 'online';
+let cachedStatsData = null;  // cache para no repetir peticion de stats al cambiar idioma
 
 const LANGUAGE_LABELS = {
     es: '🇪🇸 Español',
@@ -49,7 +51,16 @@ const translations = {
         dbpediaAllLabel: 'Buscar DBpedia en todos los idiomas',
         dbpediaScopeSingle: 'DBpedia en',
         dbpediaScopeAll: 'DBpedia en todos los idiomas',
-        dataProperties: 'Propiedades de Datos'
+        dataProperties: 'Propiedades de Datos',
+        typeClass: 'Clase',
+        typeIndividual: 'Individuo',
+        typeProperty: 'Propiedad',
+        typeDBpedia: 'Recurso DBpedia',
+        localSource: '💾 Fuente: Ontología Local',
+        errorSearch: 'Hubo un error al realizar la búsqueda',
+        errorDetails: 'Error al cargar los detalles',
+        pageTitle: 'Motor de Búsqueda - Ontología de Inteligencia Artificial',
+        headerTitle: 'Motor de Búsqueda Ontológico'
     },
     en: {
         subtitle: 'Artificial Intelligence — Local Ontology + Multilingual DBpedia',
@@ -81,7 +92,139 @@ const translations = {
         dbpediaAllLabel: 'Search DBpedia in all languages',
         dbpediaScopeSingle: 'DBpedia in',
         dbpediaScopeAll: 'DBpedia in all languages',
-        dataProperties: 'Data Properties'
+        dataProperties: 'Data Properties',
+        typeClass: 'Class',
+        typeIndividual: 'Individual',
+        typeProperty: 'Property',
+        typeDBpedia: 'DBpedia Resource',
+        localSource: '💾 Source: Local Ontology',
+        errorSearch: 'An error occurred while searching',
+        errorDetails: 'Error loading details',
+        pageTitle: 'Search Engine - Artificial Intelligence Ontology',
+        headerTitle: 'Ontological Search Engine'
+    },
+    de: {
+        subtitle: 'Künstliche Intelligenz — Lokale Ontologie + Mehrsprachiges DBpedia',
+        searchTitle: 'In der Ontologie suchen',
+        langHintPrefix: 'Suchsprache',
+        searchPlaceholder: 'z.B. maschinelles Lernen, neuronales Netz, NLP...',
+        searchBtn: 'Suchen',
+        filterAll: 'Alle',
+        filterClass: 'Klassen',
+        filterProperty: 'Eigenschaften',
+        filterIndividual: 'Individuen',
+        resultsFound: 'Ergebnisse gefunden',
+        noResults: 'Keine Ergebnisse gefunden',
+        noResultsMsg: 'Versuche andere Suchbegriffe',
+        loading: 'Suche läuft...',
+        parents: 'Oberklassen',
+        subclasses: 'Unterklassen',
+        domain: 'Domäne',
+        range: 'Wertebereich',
+        classes: 'Klassen',
+        instances: 'Instanzen',
+        statClasses: 'Klassen',
+        statProperties: 'Eigenschaften',
+        statIndividuals: 'Individuen',
+        offlineResults: 'Lokale Ergebnisse',
+        onlineResults: 'Online-Ergebnisse',
+        viewOnDBpedia: 'Auf DBpedia ansehen',
+        dbpediaMultilingual: 'Mehrsprachiges DBpedia (EN, ES, DE, FR, JA)',
+        dbpediaAllLabel: 'DBpedia in allen Sprachen durchsuchen',
+        dbpediaScopeSingle: 'DBpedia auf',
+        dbpediaScopeAll: 'DBpedia in allen Sprachen',
+        dataProperties: 'Dateneigenschaften',
+        typeClass: 'Klasse',
+        typeIndividual: 'Individuum',
+        typeProperty: 'Eigenschaft',
+        typeDBpedia: 'DBpedia-Ressource',
+        localSource: '💾 Quelle: Lokale Ontologie',
+        errorSearch: 'Bei der Suche ist ein Fehler aufgetreten',
+        errorDetails: 'Fehler beim Laden der Details',
+        pageTitle: 'Suchmaschine - Ontologie der Künstlichen Intelligenz',
+        headerTitle: 'Ontologische Suchmaschine'
+    },
+    fr: {
+        subtitle: "Intelligence Artificielle — Ontologie Locale + DBpedia Multilingue",
+        searchTitle: "Rechercher dans l'Ontologie",
+        langHintPrefix: 'Langue de recherche',
+        searchPlaceholder: 'Ex: apprentissage automatique, réseau neuronal, NLP...',
+        searchBtn: 'Rechercher',
+        filterAll: 'Tous',
+        filterClass: 'Classes',
+        filterProperty: 'Propriétés',
+        filterIndividual: 'Individus',
+        resultsFound: 'résultats trouvés',
+        noResults: 'Aucun résultat trouvé',
+        noResultsMsg: "Essayez d'autres termes de recherche",
+        loading: 'Recherche en cours...',
+        parents: 'Superclasses',
+        subclasses: 'Sous-classes',
+        domain: 'Domaine',
+        range: 'Portée',
+        classes: 'Classes',
+        instances: 'Instances',
+        statClasses: 'Classes',
+        statProperties: 'Propriétés',
+        statIndividuals: 'Individus',
+        offlineResults: 'Résultats locaux',
+        onlineResults: 'Résultats en ligne',
+        viewOnDBpedia: 'Voir sur DBpedia',
+        dbpediaMultilingual: 'DBpedia Multilingue (EN, ES, DE, FR, JA)',
+        dbpediaAllLabel: 'Rechercher DBpedia dans toutes les langues',
+        dbpediaScopeSingle: 'DBpedia en',
+        dbpediaScopeAll: 'DBpedia dans toutes les langues',
+        dataProperties: 'Propriétés de données',
+        typeClass: 'Classe',
+        typeIndividual: 'Individu',
+        typeProperty: 'Propriété',
+        typeDBpedia: 'Ressource DBpedia',
+        localSource: '💾 Source: Ontologie locale',
+        errorSearch: "Une erreur s'est produite lors de la recherche",
+        errorDetails: 'Erreur lors du chargement des détails',
+        pageTitle: "Moteur de Recherche - Ontologie de l'Intelligence Artificielle",
+        headerTitle: 'Moteur de Recherche Ontologique'
+    },
+    ja: {
+        subtitle: '人工知能 — ローカルオントロジー + 多言語DBpedia',
+        searchTitle: 'オントロジーを検索',
+        langHintPrefix: '検索言語',
+        searchPlaceholder: '例: 機械学習, ニューラルネットワーク, NLP...',
+        searchBtn: '検索',
+        filterAll: 'すべて',
+        filterClass: 'クラス',
+        filterProperty: 'プロパティ',
+        filterIndividual: '個体',
+        resultsFound: '件の結果が見つかりました',
+        noResults: '結果が見つかりませんでした',
+        noResultsMsg: '別の検索語を試してください',
+        loading: '検索中...',
+        parents: 'スーパークラス',
+        subclasses: 'サブクラス',
+        domain: 'ドメイン',
+        range: '値域',
+        classes: 'クラス',
+        instances: 'インスタンス',
+        statClasses: 'クラス',
+        statProperties: 'プロパティ',
+        statIndividuals: '個体',
+        offlineResults: 'ローカル結果',
+        onlineResults: 'オンライン結果',
+        viewOnDBpedia: 'DBpediaで見る',
+        dbpediaMultilingual: '多言語DBpedia (EN, ES, DE, FR, JA)',
+        dbpediaAllLabel: 'すべての言語でDBpediaを検索',
+        dbpediaScopeSingle: 'DBpedia（言語:',
+        dbpediaScopeAll: 'すべての言語のDBpedia',
+        dataProperties: 'データプロパティ',
+        typeClass: 'クラス',
+        typeIndividual: '個体',
+        typeProperty: 'プロパティ',
+        typeDBpedia: 'DBpediaリソース',
+        localSource: '💾 ソース: ローカルオントロジー',
+        errorSearch: '検索中にエラーが発生しました',
+        errorDetails: '詳細の読み込み中にエラーが発生しました',
+        pageTitle: '検索エンジン - 人工知能オントロジー',
+        headerTitle: 'オントロジー検索エンジン'
     }
 };
 
@@ -104,6 +247,13 @@ function changeLang(lang) {
         }
     });
     const t = getTranslations(lang);
+
+    // Update page title and html lang attribute
+    document.title = t.pageTitle;
+    document.documentElement.lang = lang;
+
+    // Update UI text
+    document.getElementById('headerTitle').textContent = t.headerTitle;
     document.getElementById('subtitle').textContent = t.subtitle;
     document.getElementById('searchTitle').textContent = t.searchTitle;
     document.getElementById('searchInput').placeholder = SEARCH_PLACEHOLDERS[lang] || t.searchPlaceholder;
@@ -113,8 +263,16 @@ function changeLang(lang) {
     document.getElementById('filterProperty').textContent = t.filterProperty;
     document.getElementById('filterIndividual').textContent = t.filterIndividual;
     document.getElementById('dbpediaAllLabel').textContent = t.dbpediaAllLabel;
+
     updateLangHint();
-    loadStats();
+
+    // Re-renderizar stats con el nuevo idioma usando datos cacheados (sin peticion de red)
+    // Esto evita que loadStats() y performSearch() accedan a la ontologia simultaneamente
+    // y causen fallos en endpoints lentos como DBpedia DE/FR
+    if (cachedStatsData) {
+        renderStats(cachedStatsData);
+    }
+
     const query = document.getElementById('searchInput').value;
     if (query) {
         performSearch();
@@ -123,6 +281,26 @@ function changeLang(lang) {
 
 function onDbpediaAllChange() {
     dbpediaAllLangs = document.getElementById('dbpediaAllLangs').checked;
+    const query = document.getElementById('searchInput').value;
+    if (query) {
+        performSearch();
+    }
+}
+
+function setSearchMode(mode) {
+    searchMode = mode === 'offline' ? 'offline' : 'online';
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.mode === searchMode) {
+            btn.classList.add('active');
+        }
+    });
+
+    const dbpediaToggle = document.getElementById('dbpediaAllLangs');
+    if (dbpediaToggle) {
+        dbpediaToggle.disabled = searchMode === 'offline';
+    }
+
     const query = document.getElementById('searchInput').value;
     if (query) {
         performSearch();
@@ -143,30 +321,35 @@ function setFilter(filter) {
     }
 }
 
+function renderStats(data) {
+    const t = getTranslations(currentLang);
+    const statsHtml = `
+        <div class="stat-card">
+            <div class="stat-number">${data.local.classes}</div>
+            <div class="stat-label">${t.statClasses}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">${data.local.object_properties + data.local.data_properties}</div>
+            <div class="stat-label">${t.statProperties}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">${data.local.individuals}</div>
+            <div class="stat-label">${t.statIndividuals}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">🌐</div>
+            <div class="stat-label">${t.dbpediaMultilingual}</div>
+        </div>
+    `;
+    document.getElementById('stats').innerHTML = statsHtml;
+}
+
 async function loadStats() {
     try {
         const response = await fetch('/api/stats');
         const data = await response.json();
-        const t = getTranslations(currentLang);
-        const statsHtml = `
-            <div class="stat-card">
-                <div class="stat-number">${data.local.classes}</div>
-                <div class="stat-label">${t.statClasses}</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">${data.local.object_properties + data.local.data_properties}</div>
-                <div class="stat-label">${t.statProperties}</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">${data.local.individuals}</div>
-                <div class="stat-label">${t.statIndividuals}</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">🌐</div>
-                <div class="stat-label">${t.dbpediaMultilingual}</div>
-            </div>
-        `;
-        document.getElementById('stats').innerHTML = statsHtml;
+        cachedStatsData = data;
+        renderStats(data);
     } catch (error) {
         console.error('Error loading stats:', error);
     }
@@ -189,11 +372,12 @@ async function performSearch() {
     `;
     try {
         const dbpediaAllParam = dbpediaAllLangs ? '&dbpedia_all=true' : '';
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&lang=${currentLang}&type=${currentFilter}${dbpediaAllParam}`);
+        const onlineParam = searchMode === 'online' ? 'true' : 'false';
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&lang=${currentLang}&type=${currentFilter}&online=${onlineParam}${dbpediaAllParam}`);
         const data = await response.json();
-        
+
         document.getElementById('resultsCount').textContent = `${data.total} ${t.resultsFound}`;
-        
+
         const dbpediaScope = data.dbpedia_all_langs
             ? t.dbpediaScopeAll
             : `${t.dbpediaScopeSingle} ${LANGUAGE_LABELS[data.dbpedia_lang] || data.dbpedia_lang}`;
@@ -203,7 +387,12 @@ async function performSearch() {
             <span class="source-stat source-online">${dbpediaScope}</span>
         `;
         document.getElementById('sourceStats').innerHTML = sourceStatsHtml;
-        
+        if (!data.online_enabled) {
+            document.getElementById('sourceStats').innerHTML = `
+                <span class="source-stat source-offline">${data.statistics.offline} ${t.offlineResults}</span>
+            `;
+        }
+
         if (data.results.length === 0) {
             results.innerHTML = `
                 <div class="no-results">
@@ -217,11 +406,12 @@ async function performSearch() {
         }
     } catch (error) {
         console.error('Error searching:', error);
+        const tErr = getTranslations(currentLang);
         results.innerHTML = `
             <div class="no-results">
                 <div class="no-results-icon">⚠️</div>
                 <h3>Error</h3>
-                <p>Hubo un error al realizar la búsqueda</p>
+                <p>${tErr.errorSearch}</p>
             </div>
         `;
     }
@@ -235,22 +425,28 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
+function getLocalizedType(apiType, t) {
+    switch (apiType) {
+        case 'Clase': return { label: t.typeClass, css: 'type-class' };
+        case 'Individuo': return { label: t.typeIndividual, css: 'type-individual' };
+        case 'Propiedad': return { label: t.typeProperty, css: 'type-property' };
+        default: return { label: t.typeDBpedia, css: 'type-dbpedia' };
+    }
+}
+
 function createResultCard(result) {
-    const typeClass = result.type === 'Clase' ? 'type-class' : 
-                     result.type === 'Individuo' ? 'type-individual' : 
-                     result.type === 'Propiedad' ? 'type-property' : 
-                     'type-dbpedia';
-    
+    const t = getTranslations(currentLang);
+    const { label: typeLabel, css: typeClass } = getLocalizedType(result.type, t);
+
     const langBadge = result.dbpedia_lang ?
         `<span class="source-badge source-online-badge">${result.dbpedia_lang.toUpperCase()}</span>` : '';
 
-    const sourceBadge = result.source === 'online' ? 
-        `<span class="source-badge source-online-badge">🌐 Online</span>${langBadge}` : 
+    const sourceBadge = result.source === 'online' ?
+        `<span class="source-badge source-online-badge">🌐 Online</span>${langBadge}` :
         '<span class="source-badge source-offline-badge">💾 Offline</span>';
-    
+
     let relations = '';
-    const t = getTranslations(currentLang);
-    
+
     if (result.parents && result.parents.length > 0) {
         relations += result.parents.map(p => `<span class="relation-tag">↑ ${p}</span>`).join('');
     }
@@ -267,10 +463,9 @@ function createResultCard(result) {
         relations += result.classes.map(c => `<span class="relation-tag">⊂ ${c}</span>`).join('');
     }
 
-    // Data properties: mostrar hasta 3 en la tarjeta
+    // Data properties: show up to 3 in the card
     let dataPropsHtml = '';
     if (result.data_properties && Object.keys(result.data_properties).length > 0) {
-        const t = getTranslations(currentLang);
         const entries = Object.entries(result.data_properties).slice(0, 3);
         const items = entries.map(([propLabel, values]) => {
             const val = values
@@ -284,14 +479,14 @@ function createResultCard(result) {
     }
 
     const dbpediaLang = result.dbpedia_lang || '';
-    
+
     return `
         <div class="result-card" data-name="${encodeURIComponent(result.name)}" data-source="${result.source}" data-dbpedia-lang="${dbpediaLang}" onclick="handleResultClick(this)">
             <div class="result-header">
                 <div>
                     <div class="result-title">${result.label} ${sourceBadge}</div>
                 </div>
-                <span class="result-type ${typeClass}">${result.type}</span>
+                <span class="result-type ${typeClass}">${typeLabel}</span>
             </div>
             <div class="result-comment">${result.comment}</div>
             ${relations ? `<div class="result-relations">${relations}</div>` : ''}
@@ -325,22 +520,23 @@ async function showDetails(entityName, source = 'offline', dbpediaLang = null) {
         }
         const response = await fetch(detailsUrl);
         const data = await response.json();
-        
+
+        const { label: detailTypeLabel, css: detailTypeCss } = getLocalizedType(data.type, t);
         let detailHtml = `
             <div class="detail-section">
                 <div class="detail-title">${data.label}</div>
                 <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px; flex-wrap: wrap;">
-                    <span class="result-type ${getTypeClass(data.type)}">${data.type}</span>
-                    ${data.source === 'online' ? 
-                      `<span class="source-badge source-online-badge">🌐 DBpedia ${data.dbpedia_source || data.dbpedia_lang || ''}</span>` : 
-                      '<span class="source-badge source-offline-badge">💾 Fuente: Ontología Local</span>'}
+                    <span class="result-type ${detailTypeCss}">${detailTypeLabel}</span>
+                    ${data.source === 'online' ?
+                `<span class="source-badge source-online-badge">🌐 DBpedia ${data.dbpedia_source || data.dbpedia_lang || ''}</span>` :
+                `<span class="source-badge source-offline-badge">${t.localSource}</span>`}
                 </div>
                 <p style="margin-top: 15px;">${data.comment}</p>
                 ${data.iri ? `<p style="color: #999; font-size: 0.9em; margin-top: 10px;">IRI: ${data.iri}</p>` : ''}
                 ${data.external_link ? `<a href="${data.external_link}" target="_blank" class="external-link">${t.viewOnDBpedia}</a>` : ''}
             </div>
         `;
-        
+
         if (data.parents && data.parents.length > 0) {
             detailHtml += `
                 <div class="detail-section">
@@ -423,7 +619,8 @@ async function showDetails(entityName, source = 'offline', dbpediaLang = null) {
         content.innerHTML = detailHtml;
     } catch (error) {
         console.error('Error loading details:', error);
-        content.innerHTML = '<p>Error al cargar los detalles</p>';
+        const tErr = getTranslations(currentLang);
+        content.innerHTML = `<p>${tErr.errorDetails}</p>`;
     }
 }
 
@@ -431,22 +628,21 @@ function getTypeClass(type) {
     if (type === 'Clase') return 'type-class';
     if (type === 'Individuo') return 'type-individual';
     if (type === 'Propiedad') return 'type-property';
-    if (type === 'DBPedia' || type === 'Recurso DBpedia') return 'type-dbpedia';
-    return 'type-class';
+    return 'type-dbpedia';
 }
 
 function closeModal() {
     document.getElementById('detailModal').style.display = 'none';
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     const modal = document.getElementById('detailModal');
     if (event.target === modal) {
         modal.style.display = 'none';
     }
-}
+};
 
-document.getElementById('searchInput').addEventListener('keypress', function(e) {
+document.getElementById('searchInput').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         performSearch();
     }
@@ -454,3 +650,4 @@ document.getElementById('searchInput').addEventListener('keypress', function(e) 
 
 loadStats();
 updateLangHint();
+setSearchMode(searchMode);

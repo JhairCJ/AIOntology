@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motor de Búsqueda - Ontología de Inteligencia Artificial</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+
 <body>
     <div class="container">
         <header>
-            <h1>Motor de Búsqueda Ontológico</h1>
+            <h1 id="headerTitle">Motor de Búsqueda Ontológico</h1>
             <p class="subtitle" id="subtitle">Inteligencia Artificial — Ontología Local + DBpedia Multilingüe</p>
         </header>
 
@@ -24,15 +26,25 @@
                     <p class="lang-hint" id="langHint">Idioma de búsqueda: 🇪🇸 Español</p>
                 </div>
                 <div class="language-selector">
-                    <button class="lang-btn active" data-lang="es" onclick="changeLang('es')" title="Buscar en español">🇪🇸 ES</button>
-                    <button class="lang-btn" data-lang="en" onclick="changeLang('en')" title="Search in English">🇺🇸 EN</button>
-                    <button class="lang-btn" data-lang="de" onclick="changeLang('de')" title="Suche auf Deutsch">🇩🇪 DE</button>
-                    <button class="lang-btn" data-lang="fr" onclick="changeLang('fr')" title="Rechercher en français">🇫🇷 FR</button>
+                    <button class="lang-btn active" data-lang="es" onclick="changeLang('es')"
+                        title="Buscar en español">🇪🇸 ES</button>
+                    <button class="lang-btn" data-lang="en" onclick="changeLang('en')" title="Search in English">🇺🇸
+                        EN</button>
+                    <button class="lang-btn" data-lang="de" onclick="changeLang('de')" title="Suche auf Deutsch">🇩🇪
+                        DE</button>
+                    <button class="lang-btn" data-lang="fr" onclick="changeLang('fr')"
+                        title="Rechercher en français">🇫🇷 FR</button>
                     <button class="lang-btn" data-lang="ja" onclick="changeLang('ja')" title="日本語で検索">🇯🇵 JA</button>
                 </div>
             </div>
 
             <div class="search-options">
+                <div class="mode-switch" role="group" aria-label="Modo de busqueda">
+                    <button class="mode-btn active" id="modeOnline" data-mode="online" onclick="setSearchMode('online')"
+                        type="button">Online</button>
+                    <button class="mode-btn" id="modeOffline" data-mode="offline" onclick="setSearchMode('offline')"
+                        type="button">Offline</button>
+                </div>
                 <label class="dbpedia-all-toggle">
                     <input type="checkbox" id="dbpediaAllLangs" onchange="onDbpediaAllChange()" />
                     <span id="dbpediaAllLabel">Buscar DBpedia en todos los idiomas</span>
@@ -45,10 +57,14 @@
             </div>
 
             <div class="filters">
-                <button class="filter-btn active" data-filter="all" onclick="setFilter('all')" id="filterAll">Todos</button>
-                <button class="filter-btn" data-filter="class" onclick="setFilter('class')" id="filterClass">Clases</button>
-                <button class="filter-btn" data-filter="property" onclick="setFilter('property')" id="filterProperty">Propiedades</button>
-                <button class="filter-btn" data-filter="individual" onclick="setFilter('individual')" id="filterIndividual">Individuos</button>
+                <button class="filter-btn active" data-filter="all" onclick="setFilter('all')"
+                    id="filterAll">Todos</button>
+                <button class="filter-btn" data-filter="class" onclick="setFilter('class')"
+                    id="filterClass">Clases</button>
+                <button class="filter-btn" data-filter="property" onclick="setFilter('property')"
+                    id="filterProperty">Propiedades</button>
+                <button class="filter-btn" data-filter="individual" onclick="setFilter('individual')"
+                    id="filterIndividual">Individuos</button>
             </div>
         </div>
 
@@ -70,4 +86,5 @@
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
