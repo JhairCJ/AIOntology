@@ -5,6 +5,16 @@ import unicodedata
 import os
 from SPARQLWrapper import SPARQLWrapper, JSON
 import re
+import ssl
+
+# Ignorar errores de certificados SSL (útil para endpoints de DBpedia con certificados caducados)
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
 
 app = Flask(__name__, template_folder='templates')
 CORS(app)
@@ -143,39 +153,103 @@ DBPEDIA_SOURCES = {
     },
 }
 
+
 def load_ontology():
     global ontology
     if os.path.exists(ONTOLOGY_PATH):
         abs_path = os.path.abspath(ONTOLOGY_PATH)
         ontology = get_ontology(abs_path).load()
-        print(f"✅ Ontología cargada: {len(list(ontology.classes()))} clases, {len(list(ontology.individuals()))} individuos")
+        print(f"[OK] Ontologia cargada: {len(list(ontology.classes()))} clases, {len(list(ontology.individuals()))} individuos")
     else:
-        print(f"❌ Error: No se encuentra {ONTOLOGY_PATH}")
+        print(f"[ERROR] No se encuentra {ONTOLOGY_PATH}")
+
+def _get_data_prop_value(entity, prop_name):
+    """Obtiene el valor de una data property personalizada por nombre (ej: 'nombre', 'definicion')"""
+    if not ontology:
+        return None
+    for prop in ontology.data_properties():
+        if prop.name == prop_name:
+            try:
+                values = prop[entity]
+                if values:
+                    return str(values[0])
+            except Exception:
+                pass
+    return None
 
 def get_label(entity, lang='es'):
-    """Obtiene la etiqueta en el idioma especificado"""
-    if hasattr(entity, 'label'):
+    """Obtiene la etiqueta en el idioma especificado.
+    Prioridad: rdfs:label > data property 'nombre' > entity.name"""
+    # rdfs:label en el idioma pedido
+    if hasattr(entity, 'label') and entity.label:
         labels = entity.label
-        if labels:
+        for label in labels:
+            if hasattr(label, 'lang') and label.lang == lang:
+                return str(label)
+        if lang != 'en':
             for label in labels:
-                if hasattr(label, 'lang') and label.lang == lang:
+                if hasattr(label, 'lang') and label.lang == 'en':
                     return str(label)
-            return str(labels[0]) if labels else entity.name
+        if lang != 'es':
+            for label in labels:
+                if hasattr(label, 'lang') and label.lang == 'es':
+                    return str(label)
+        return str(labels[0])
+    # Data property 'nombre'
+    nombre = _get_data_prop_value(entity, 'nombre')
+    if nombre:
+        return nombre
     return entity.name
 
 def get_comment(entity, lang='es'):
-    """Obtiene el comentario en el idioma especificado"""
-    if hasattr(entity, 'comment'):
+    """Obtiene el comentario en el idioma especificado.
+    Prioridad: rdfs:comment > data property 'definicion' > ''"""
+    # rdfs:comment en el idioma pedido
+    if hasattr(entity, 'comment') and entity.comment:
         comments = entity.comment
-        if comments:
+        for comment in comments:
+            if hasattr(comment, 'lang') and comment.lang == lang:
+                return str(comment)
+        if lang != 'en':
             for comment in comments:
-                if hasattr(comment, 'lang') and comment.lang == lang:
+                if hasattr(comment, 'lang') and comment.lang == 'en':
                     return str(comment)
-            return str(comments[0]) if comments else ""
+        if lang != 'es':
+            for comment in comments:
+                if hasattr(comment, 'lang') and comment.lang == 'es':
+                    return str(comment)
+        return str(comments[0])
+    # Data property 'definicion'
+    definicion = _get_data_prop_value(entity, 'definicion')
+    if definicion:
+        return definicion
     return ""
 
+def get_all_searchable_text(entity):
+    """Devuelve todo el texto de la entidad en TODOS los idiomas para busqueda multilingue.
+    Incluye rdfs:label/comment y data properties."""
+    texts = [entity.name]
+    # Todos los rdfs:label
+    if hasattr(entity, 'label') and entity.label:
+        texts.extend(str(l) for l in entity.label)
+    # Todos los rdfs:comment
+    if hasattr(entity, 'comment') and entity.comment:
+        texts.extend(str(c) for c in entity.comment)
+    # Data properties de texto
+    if ontology:
+        for prop in ontology.data_properties():
+            try:
+                values = prop[entity]
+                for v in values:
+                    s = str(v)
+                    if s and len(s) < 500:
+                        texts.append(s)
+            except Exception:
+                pass
+    return ' '.join(texts)
+
 def get_data_properties(entity, lang='es'):
-    """Obtiene los valores de data properties de una entidad (individuo o clase)"""
+    """Obtiene los valores de data properties de una entidad filtrados por idioma"""
     data_props = {}
     if not ontology:
         return data_props
@@ -185,15 +259,24 @@ def get_data_properties(entity, lang='es'):
             values = prop[entity]
             if values:
                 label_display = get_label(prop, lang) or prop.name
-                serialized = []
+                filtered = []
+                no_lang = []
+                fallback_en = []
+                other = []
                 for v in values:
+                    entry = {'value': str(v), 'lang': getattr(v, 'lang', None)}
                     if hasattr(v, 'lang'):
-                        # locstr: incluir solo si coincide con lang, o si no hay de ese idioma
-                        serialized.append({'value': str(v), 'lang': v.lang})
+                        if v.lang == lang:
+                            filtered.append(entry)
+                        elif v.lang == 'en':
+                            fallback_en.append(entry)
+                        else:
+                            other.append(entry)
                     else:
-                        serialized.append({'value': str(v), 'lang': None})
-                if serialized:
-                    data_props[label_display] = serialized
+                        no_lang.append(entry)
+                chosen = filtered or no_lang or fallback_en or other
+                if chosen:
+                    data_props[label_display] = chosen
         except Exception:
             pass
     return data_props
@@ -206,20 +289,22 @@ def normalize_text(text):
     return t.strip().lower()
 
 def search_classes(query, lang='es'):
-    """Busca en las clases de la ontología"""
+    """Busca en las clases de la ontología (búsqueda multilingüe)"""
     results = []
     query_lower = normalize_text(query)
-    
+
     for cls in ontology.classes():
+        # Buscar en TODOS los idiomas disponibles
+        all_text = normalize_text(get_all_searchable_text(cls))
         label_display = get_label(cls, lang)
         label = normalize_text(label_display)
-        comment = normalize_text(get_comment(cls, lang))
         name = normalize_text(cls.name)
-        
-        if query_lower in label or query_lower in name or query_lower in comment:
+        comment = normalize_text(get_comment(cls, lang))
+
+        if query_lower in all_text:
             parents = [get_label(p, lang) for p in cls.is_a if isinstance(p, type)]
             subclasses = [get_label(sub, lang) for sub in cls.subclasses()]
-            
+
             results.append({
                 'name': cls.name,
                 'label': label_display,
@@ -231,24 +316,25 @@ def search_classes(query, lang='es'):
                 'relevance': calculate_relevance(query_lower, label, name, comment, 'class'),
                 'source': 'offline'
             })
-    
+
     return results
 
 def search_properties(query, lang='es'):
-    """Busca en las propiedades de la ontología"""
+    """Busca en las propiedades de la ontología (búsqueda multilingüe)"""
     results = []
     query_lower = normalize_text(query)
-    
+
     for prop in ontology.object_properties():
+        all_text = normalize_text(get_all_searchable_text(prop))
         label_display = get_label(prop, lang)
         label = normalize_text(label_display)
         comment = normalize_text(get_comment(prop, lang))
         name = normalize_text(prop.name)
-        
-        if query_lower in label or query_lower in name or query_lower in comment:
+
+        if query_lower in all_text:
             domain = [get_label(d, lang) for d in prop.domain] if prop.domain else []
             range_val = [get_label(r, lang) for r in prop.range] if prop.range else []
-            
+
             results.append({
                 'name': prop.name,
                 'label': label_display,
@@ -259,16 +345,17 @@ def search_properties(query, lang='es'):
                 'relevance': calculate_relevance(query_lower, label, name, comment, 'property'),
                 'source': 'offline'
             })
-    
+
     for prop in ontology.data_properties():
+        all_text = normalize_text(get_all_searchable_text(prop))
         label_display = get_label(prop, lang)
         label = normalize_text(label_display)
         comment = normalize_text(get_comment(prop, lang))
         name = normalize_text(prop.name)
-        
-        if query_lower in label or query_lower in name or query_lower in comment:
+
+        if query_lower in all_text:
             domain = [get_label(d, lang) for d in prop.domain] if prop.domain else []
-            
+
             results.append({
                 'name': prop.name,
                 'label': label_display,
@@ -279,23 +366,25 @@ def search_properties(query, lang='es'):
                 'relevance': calculate_relevance(query_lower, label, name, comment, 'property'),
                 'source': 'offline'
             })
-    
+
     return results
 
 def search_individuals(query, lang='es'):
-    """Busca en los individuos de la ontología"""
+    """Busca en los individuos de la ontología (búsqueda multilingüe)"""
     results = []
     query_lower = normalize_text(query)
-    
+
     for ind in ontology.individuals():
+        # Buscar en TODOS los idiomas y data properties
+        all_text = normalize_text(get_all_searchable_text(ind))
         label_display = get_label(ind, lang)
         label = normalize_text(label_display)
         name = normalize_text(ind.name)
         comment = normalize_text(get_comment(ind, lang))
-        
-        if query_lower in label or query_lower in name or query_lower in comment:
+
+        if query_lower in all_text:
             classes = [get_label(c, lang) for c in ind.is_a if isinstance(c, type)]
-            
+
             results.append({
                 'name': ind.name,
                 'label': label_display,
@@ -306,7 +395,7 @@ def search_individuals(query, lang='es'):
                 'relevance': calculate_relevance(query_lower, label, name, comment, 'individual'),
                 'source': 'offline'
             })
-    
+
     return results
 
 def calculate_relevance(query, label, name, comment, entity_type):
@@ -409,7 +498,14 @@ def search_dbpedia_endpoint(query, source_config, limit=10, preferred_lang=None)
 
             comment = result.get("abstract", {}).get("value", "")
             if not comment:
-                comment = f"Recurso de inteligencia artificial relacionado con '{query}'"
+                _fallback_msgs = {
+                    'es': f"Recurso de inteligencia artificial relacionado con '{query}'",
+                    'en': f"Artificial intelligence resource related to '{query}'",
+                    'de': f"Ressource zur künstlichen Intelligenz zum Thema '{query}'",
+                    'fr': f"Ressource d'intelligence artificielle liée à '{query}'",
+                    'ja': f"'{query}' に関連する人工知能リソース",
+                }
+                comment = _fallback_msgs.get(lang_code, f"AI resource related to '{query}'")
             elif len(comment) > 200:
                 comment = comment[:197] + "..."
 

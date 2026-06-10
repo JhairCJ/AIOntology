@@ -272,11 +272,6 @@ function changeLang(lang) {
     if (cachedStatsData) {
         renderStats(cachedStatsData);
     }
-
-    const query = document.getElementById('searchInput').value;
-    if (query) {
-        performSearch();
-    }
 }
 
 function onDbpediaAllChange() {
@@ -468,10 +463,7 @@ function createResultCard(result) {
     if (result.data_properties && Object.keys(result.data_properties).length > 0) {
         const entries = Object.entries(result.data_properties).slice(0, 3);
         const items = entries.map(([propLabel, values]) => {
-            const val = values
-                .filter(v => !v.lang || v.lang === currentLang || v.lang === 'en')
-                .map(v => v.value)[0]
-                || values[0].value;
+            const val = values[0].value;
             const truncated = val.length > 80 ? val.slice(0, 77) + '…' : val;
             return `<span class="data-prop-tag"><strong>${escapeHtml(propLabel)}:</strong> ${escapeHtml(truncated)}</span>`;
         }).join('');
@@ -599,11 +591,8 @@ async function showDetails(entityName, source = 'offline', dbpediaLang = null) {
         }
         if (data.data_properties && Object.keys(data.data_properties).length > 0) {
             const rows = Object.entries(data.data_properties).map(([propLabel, values]) => {
-                const displayVal = values
-                    .filter(v => !v.lang || v.lang === currentLang || v.lang === 'en')
-                    .map(v => v.value)[0]
-                    || values[0].value;
-                const langTag = values[0].lang ? `<span class="data-prop-lang">${values[0].lang}</span>` : '';
+                const displayVal = values[0].value;
+                const langTag = values[0].lang && values[0].lang !== currentLang ? `<span class="data-prop-lang">${values[0].lang}</span>` : '';
                 return `<tr>
                     <td class="dp-label">${escapeHtml(propLabel)}</td>
                     <td class="dp-value">${escapeHtml(displayVal)} ${langTag}</td>
